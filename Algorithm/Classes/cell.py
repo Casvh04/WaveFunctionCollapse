@@ -1,4 +1,4 @@
-from tiles import Tile
+from Classes.tiles import Tile
 
 class Cell:
     

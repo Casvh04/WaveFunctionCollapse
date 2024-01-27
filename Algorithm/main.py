@@ -1,8 +1,8 @@
 import glob
 import random    
 from PIL import Image
-from tiles import Tile
-from cell import Cell
+from Classes.tiles import Tile
+from Classes.cell import Cell
 
 tiles: list[Tile] = []
 tileImages: list[Image.Image] = []

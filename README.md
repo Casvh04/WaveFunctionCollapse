@@ -2,6 +2,6 @@
 
 ## How to run the Algorithm
 ```
-cd Algoritm
+cd Algorithm
 py main.py
 ```

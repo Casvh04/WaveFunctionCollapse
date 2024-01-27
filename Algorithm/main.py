@@ -13,10 +13,10 @@ options: list[list[list[int]]] = [
 [[0,1,3],[0,2,3],[1,2,3],[0,2,3]], #tile4
 [[2,4],[1,4],[0,4],[1,4]] #tile5
 ]
-Size = 10
+Size = 4
 
 def LoadImages():
-    for path in glob.glob('./Sprites/*.png'):
+    for path in glob.glob('../SpriteAssets/Sprites/*.png'):
         tileImages.append(Image.open(path))
 
 def Create2DList(Size):
@@ -115,7 +115,11 @@ def Setup():
     #First choice
     x = random.randint(0,Size-1)
     y = random.randint(0,Size-1)
-    tile = random.choice(tiles)
+    if len(tiles) > 0:
+        tile = random.choice(tiles)
+    else:
+        print("Error: No available sprites found.")
+        return
     canvas.paste(tile.sprite,(x*40,y*40))
     Grid[x][y].Collapse(tile)
     
@@ -135,3 +139,7 @@ def Setup():
             solved = True
     canvas.show()
 Setup()
+
+#Rework tile options
+#instead of check which tiles are possible
+#check if a side is a blank or has a connection
